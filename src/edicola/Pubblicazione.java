@@ -47,7 +47,6 @@ public class Pubblicazione {
             if (copieRicevute >= 0) {
                 this.copieRicevute = copieRicevute;
                 ancora = false;
-                this.quantitaResa = getCopieRicevute() - getQuantitaVenduta();
             } else {
                 System.out.println("///// Errore Inserimento /////");
                 System.out.println("Le copie ricevute non possono essere negative, reinserisci:");
@@ -58,7 +57,7 @@ public class Pubblicazione {
     public void setPrezzoCopertina(double prezzoCopertina) {
         boolean ancora = true;
         do {
-            if (prezzoCopertina > 0) {
+            if (prezzoCopertina > 0.5) {
                 this.prezzoCopertina = prezzoCopertina;
                 ancora = false;
             } else {
