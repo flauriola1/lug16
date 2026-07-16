@@ -23,7 +23,7 @@ public class GestioneEdicola {
             System.out.print("Copie Ricevute: ");
             int ricevute = inputNumeri.nextInt();
 
-            System.out.print("Prezzo di copertina(es. 1.50): ");
+            System.out.print("Prezzo di copertina(es. 1,50): ");
             double prezzo = inputNumeri.nextDouble();
 
             System.out.print("Percentuale di aggio: ");

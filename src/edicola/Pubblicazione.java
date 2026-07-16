@@ -24,9 +24,6 @@ public class Pubblicazione {
         setQuantitaVenduta(quantitaVenduta);
     }
 
-    private void aggiornaReso() {
-        this.quantitaResa = getCopieRicevute() - getQuantitaVenduta();
-    }
 
     public void setNome(String nome) {
         boolean ancora = true;
@@ -50,15 +47,14 @@ public class Pubblicazione {
             if (copieRicevute >= 0) {
                 this.copieRicevute = copieRicevute;
                 ancora = false;
-                aggiornaReso();
+                this.quantitaResa = getCopieRicevute() - getQuantitaVenduta();
             } else {
-            	System.out.println("///// Errore Inserimento /////");
+                System.out.println("///// Errore Inserimento /////");
                 System.out.println("Le copie ricevute non possono essere negative, reinserisci:");
                 copieRicevute = inputNumeri.nextInt();
             }
         } while(ancora);
     }
-
     public void setPrezzoCopertina(double prezzoCopertina) {
         boolean ancora = true;
         do {
@@ -94,7 +90,7 @@ public class Pubblicazione {
             if (quantitaVenduta >= 0 && quantitaVenduta <= getCopieRicevute()) {
                 this.quantitaVenduta = quantitaVenduta;
                 ancora = false;
-                aggiornaReso();
+                setQuantitaResa(getCopieRicevute() - getQuantitaVenduta());
             } else {
 
             	System.out.println("///// Errore Inserimento /////");
@@ -109,11 +105,10 @@ public class Pubblicazione {
         do {
             if (quantitaResa >= 0 && quantitaResa <= getCopieRicevute()) {
                 this.quantitaResa = quantitaResa;
-                setQuantitaVenduta( getCopieRicevute() - quantitaResa);
+                this.quantitaVenduta = getCopieRicevute() - quantitaResa;
                 ancora = false;
             } else {
-
-            	System.out.println("///// Errore Inserimento /////");
+                System.out.println("///// Errore Inserimento /////");
                 System.out.println("La quantità resa deve essere compresa tra 0 e " + getCopieRicevute() + ", reinserisci:");
                 quantitaResa = inputNumeri.nextInt();
             }
