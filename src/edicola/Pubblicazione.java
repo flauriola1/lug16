@@ -109,7 +109,7 @@ public class Pubblicazione {
         do {
             if (quantitaResa >= 0 && quantitaResa <= getCopieRicevute()) {
                 this.quantitaResa = quantitaResa;
-                this.quantitaVenduta = getCopieRicevute() - quantitaResa;
+                setQuantitaVenduta( getCopieRicevute() - quantitaResa);
                 ancora = false;
             } else {
 
